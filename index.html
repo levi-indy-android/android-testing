@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Indy Android Developers - Automated Testing 8/20/2013</title>
+
+    <meta name="description" content="Talk given at the Indy Android Developers group on 8/20/2013">
+    <meta name="author" content="Levi Wilson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+        <p>Android Test Automation</p>
+        <p>with Ruby&nbsp;</p>
+
+        </section>
+        <section>
+        <section>
+        <h2>Info</h2>
+        <div style="text-align: left;">
+          <div>
+            <img src="images/github.png" style="vertical-align: middle;"> 
+            <span>http://github.com/levi-indy-android/android-testing</span>
+          </div>
+          <div class="fragment">
+            <img src="images/twitter.png" style="vertical-align: middle;"> 
+            <span>@leviw</span>
+          </div>
+          <div class="fragment">
+            <img src="images/northwoods.png" style="width: 64.0px;height: 64.0px;vertical-align: middle;"> 
+            <span>Northwoods Consulting (@teamnorthwoods)</span>
+          </div>
+        </div>
+        </section>
+        </section>
+        <section>
+        <h2>Overview</h2>
+        <div>
+          <ol>
+            <li>Gems we are working with</li>
+            <li>Build a test suite live</li>
+            <li>Questions</li>
+          </ol>
+        </div>
+        </section>
+        <section>
+        <h2>Gems</h2>
+        <div>
+          <ol>
+            <li>testgen <em>- Generates our cucumber structure</em></li>
+            
+            <div class="fragment">
+              <li>brazenhead <em> - The low-level driver</em></li>
+            </div>
+            <div class="fragment">
+              <li>gametel <em> - The page-object wrapper</em></li>
+              <pre style="width: auto;"><code>
+class LoginScreen
+  include Gametel
+  activity(:LoginScreen)
+
+  text(:username, :index => 0)
+  text(:password, :index => 0)
+
+  def login_with(user, pwd)
+    self.username = usern
+    self.password = pwd
+  end
+end
+
+on(LoginScreen).login_with('your_username', '$ecret')
+              </code></pre>
+            </div>
+          </ol>
+        </div>
+        </section>
+        <section>
+        <h2>Live Coding</h2>
+        <div>
+          <img src="images/warrior.gif">
+          <br>
+        </div>
+        </section>
+        <section>
+        <h2>Questions?</h2>
+        <div>
+          <img src="images/lesko.jpg">
+          <br>
+        </div>
+        </section>
+      </div>
+
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
