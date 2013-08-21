@@ -16,9 +16,9 @@ Source repository for the [Indianapolis Android Developers](http://www.meetup.co
 ### Result Branch
 The code sample that we ended up with during the talk is located in the [live example branch](https://github.com/levi-indy-android/android-testing/tree/live-example) which has the following scenarios completed:
 
-```ruby
+```feature
 @login
-Feature:  Logging into the GitHub application
+Feature: Logging into the GitHub application
 
   Scenario: Logging in successfully
     When we give valid credentials
