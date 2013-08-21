@@ -120,10 +120,13 @@ class LoginScreen
 
   text(:username, :index => 0)
   text(:password, :index => 1)
+  
+  button(:login, :id => 'login_button)
 
   def login_with(username, password)
     self.username = username
     self.password = password
+    login
   end
 end
 
